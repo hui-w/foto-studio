@@ -1,0 +1,59 @@
+﻿<Window x:Class="QLike.Foto.GridStudio.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:QLike.Foto.GridStudio.Controls"
+    Title="Foto Grid Studio" Height="500" Width="700" Loaded="Window_Loaded" Icon="/FotoGridStudio;component/app_grid.ico" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="23"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160" Name="toolColumn"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Height="22" Name="menuMain" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Publish..." Click="Publish_Click"/>
+                <Separator></Separator>
+                <MenuItem Header="_Exit" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Grid List" Name="menuGrid" Click="MenuItem_Click"/>
+                <MenuItem Header="_Folder View" Name="menuFolder" Click="MenuItem_Click"/>
+                <Separator></Separator>
+                <MenuItem Header="_Refresh" Click="Refresh_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About..." Click="MenuItem_Click"/>
+                <!--<MenuItem Header="_Check Update..." Click="MenuItem_Click"/>-->
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="2" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Label Padding="5, 2, 5, 0">Width * Height :</Label>
+            <TextBox Name="txtWidth" Width="40" BorderBrush="LightGray"></TextBox>
+            <Label Padding="5, 2, 5, 0">*</Label>
+            <TextBox Name="txtHeight" Width="40" BorderBrush="LightGray"></TextBox>
+            <Button Click="Refresh_Click" BorderBrush="Gray" Margin="10, 0, 0, 0">Refresh</Button>
+            <Separator Margin="10, 0 ,0 ,0"></Separator>
+            <Button Click="Publish_Click" BorderBrush="Gray" Margin="10, 0, 0, 0">Publish...</Button>
+        </ToolBar>
+        <Grid Grid.Row="2" Grid.Column="0" Margin="5" Name="gridTools">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <local:LinkButton x:Name="btnGrid" Width="60" Height="22" Text="Grid" Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Left" MouseLeftButtonUp="btnGrid_MouseLeftButtonUp"></local:LinkButton>
+            <local:LinkButton x:Name="btnFolder" Width="60" Height="22" Text="Folder" Grid.Row="1" Margin="65,0,0,0" HorizontalAlignment="Left" MouseLeftButtonUp="btnFolder_MouseLeftButtonUp"></local:LinkButton>
+        </Grid>
+        <Border Grid.Row="2" Grid.Column="1" Margin="0,5,5,5" BorderBrush="Gray" BorderThickness="1">
+            <ScrollViewer Name="viewMain"  Margin="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SizeChanged="viewMain_SizeChanged"></ScrollViewer>
+        </Border>
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
+            <StatusBarItem Name="lblSelectedFilePath"></StatusBarItem>
+        </StatusBar>
+        <GridSplitter Grid.Row="2" Name="gridSplitter" Width="5" Background="White" />
+    </Grid>
+</Window>

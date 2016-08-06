@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="QLike.Foto.GridStudio.Controls.FolderBrowser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:QLike.Foto.GridStudio.Controls"
+    Height="300" Width="300">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TreeView x:Name="treeDirectory" Grid.Column="0" Margin="0,0,6,0">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:DirectoryRecord}" ItemsSource="{Binding Directories}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/FotoGridStudio;component/Images/folder.png"  Width="16" Height="16" Margin="0,2,0,2" />
+                        <TextBlock Text="{Binding Info.Name}"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <local:ThumbContainer x:Name="ucThumnContainer" Grid.Column="1" Grid.Row="1"
+                              ItemsSource="{Binding ElementName=treeDirectory, Path=SelectedItem.Files}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></local:ThumbContainer>
+        <!--<GridSplitter Name="gridSplitter" Width="5" Background="White" />-->
+    </Grid>
+</UserControl>

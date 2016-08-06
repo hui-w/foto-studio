@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="QLike.Foto.GridStudio.Controls.ImageCell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="200" Width="200" AllowDrop="True" MouseLeave="UserControl_MouseLeave" Drop="UserControl_Drop">
+    <Canvas Name="grid" Loaded="grid_Loaded">
+        <Rectangle Name="rect" Fill="LightSteelBlue"></Rectangle>
+        <Image Canvas.Left="0" Canvas.Top="0" Width="100" Height="100" Name="image" Stretch="UniformToFill" Opacity="1" />
+        <Canvas.Clip>
+            <CombinedGeometry GeometryCombineMode="Xor">
+                <CombinedGeometry.Geometry1>
+                    <RectangleGeometry x:Name="rectGeo1" Rect="0,0,80,80" RadiusX="8" RadiusY="8" />
+                </CombinedGeometry.Geometry1>
+                <!--<CombinedGeometry.Geometry2>
+                    <RectangleGeometry x:Name="rectGeo2" Rect="0,0,80,80" />
+                </CombinedGeometry.Geometry2>-->
+            </CombinedGeometry>
+        </Canvas.Clip>
+    </Canvas>
+</UserControl>

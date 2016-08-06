@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FotoGrid CellSpacing="5">
+  <Rows>
+    <Row Height="*"></Row>
+    <Row Height="*"></Row>
+    <Row Height="*"></Row>
+  </Rows>
+  <Columns>
+    <Column Width="*"></Column>
+    <Column Width="*"></Column>
+  </Columns>
+  <Cells>
+    <Cell Row="0" Column="0"></Cell>
+    <Cell Row="0" Column="1"></Cell>
+    <Cell Row="1" Column="0"></Cell>
+    <Cell Row="2" Column="0"></Cell>
+    <Cell Row="1" Column="1" RowSpan="2"></Cell>
+  </Cells>
+</FotoGrid>

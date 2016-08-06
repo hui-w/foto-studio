@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="QLike.Foto.GridStudio.Controls.ImageThumb"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="200" Width="200" MouseLeave="UserControl_MouseLeave">
+    <Grid>
+        <Rectangle Name="rect" Fill="LightSteelBlue"></Rectangle>
+        <Image Name="image" Stretch="UniformToFill" />
+    </Grid>
+</UserControl>

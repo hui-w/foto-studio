@@ -1,0 +1,82 @@
+﻿<Window x:Class="QLike.Foto.ExifViewer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:QLike.Foto.ExifViewer"
+    Title="Exif Viewer" Height="300" Width="500" AllowDrop="True" DragEnter="Window_DragEnter" Drop="Window_Drop" Loaded="Window_Loaded" Icon="/ExifViewer;component/app_exif.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="23"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Name="propertyColumn" Width="0"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Height="22" Name="menuMain" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open..." Command="ApplicationCommands.Open"/>
+                <Separator></Separator>
+                <MenuItem Header="_Exit" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Exif Info" Name="menuExif"  Click="menuExif_Click"/>
+                <Separator></Separator>
+                <MenuItem Header="First" Name="menuFirst" Command="local:CustomCommands.FirstCommand"/>
+                <MenuItem Header="Previous" Name="menuPrev" Command="local:CustomCommands.PrevCommand"/>
+                <MenuItem Header="Next" Name="menuNext" Command="local:CustomCommands.NextCommand"/>
+                <MenuItem Header="Last" Name="menuLast" Command="local:CustomCommands.LastCommand"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About..." Command="ApplicationCommands.Help"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="2" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Button BorderBrush="Gray" Margin="0, 0, 0, 0" Command="ApplicationCommands.Open">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/ExifViewer;component/Images/open.png" Width="16" Height="16"></Image>
+                    <TextBlock Padding="5,0,5,0" VerticalAlignment="Center">Open...</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator Margin="10, 0 ,0 ,0"></Separator>
+            <Button BorderBrush="Gray" Margin="10, 0, 0, 0" Name="btnFirst" Command="local:CustomCommands.FirstCommand">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/ExifViewer;component/Images/first.png" Width="16" Height="16"></Image>
+                    <TextBlock Padding="3,0,3,0" VerticalAlignment="Center">First</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button BorderBrush="Gray" Margin="10, 0, 0, 0" Name="btnPrev" Command="local:CustomCommands.PrevCommand">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/ExifViewer;component/Images/prev.png" Width="16" Height="16"></Image>
+                    <TextBlock Padding="3,0,3,0" VerticalAlignment="Center">Previous</TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBlock Margin="10, 2, 0, 0" Name="txtNavigation">0 of 0</TextBlock>
+            <Button BorderBrush="Gray" Margin="10, 0, 0, 0" Name="btnNext" Command="local:CustomCommands.NextCommand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Padding="3,0,3,0" VerticalAlignment="Center">Next</TextBlock>
+                    <Image Source="pack://application:,,,/ExifViewer;component/Images/next.png" Width="16" Height="16"></Image>
+                </StackPanel>
+            </Button>
+            <Button BorderBrush="Gray" Margin="10, 0, 0, 0" Name="btnLast" Command="local:CustomCommands.LastCommand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Padding="3,0,3,0" VerticalAlignment="Center">Last</TextBlock>
+                    <Image Source="pack://application:,,,/ExifViewer;component/Images/last.png" Width="16" Height="16"></Image>
+                </StackPanel>
+            </Button>
+        </ToolBar>
+        <Border Name="imgBorder" Grid.Row="2" Grid.Column="0">
+            <Image Name="imgPreview" Stretch="Uniform" />
+        </Border>
+        <TextBlock Name="txtLoading" Visibility="Hidden" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Background="LightSlateGray" Foreground="White"
+                   FontSize="14" Padding="10,5,10,5">Loading...</TextBlock>
+        <ScrollViewer Grid.Row="2" Grid.Column="1" Name="exifContainer">
+        </ScrollViewer>
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
+            <StatusBarItem Name="lblStatus">READY</StatusBarItem>
+        </StatusBar>
+        <GridSplitter Grid.Row="2" Name="gridSplitter" Width="5" Background="LightSlateGray" />
+    </Grid>
+</Window>

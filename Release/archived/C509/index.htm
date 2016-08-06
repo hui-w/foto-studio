@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Foto Toolbox</title>
+<script type="text/javascript">
+var clickCount = 0;
+function headerClicked(){clickCount++;if(clickCount >= 10)document.getElementById("zipped").style.display = "block";}
+</script>
+</head>
+<body style="padding: 10px 20px 0px 20px;">
+<h2 onclick="headerClicked()">Foto Toolbox</h2>
+<p>
+    <a href="Launcher/FotoToolbox.zip" style="color: blue">Click Here to Download the Installer</a> (40 KB)
+</p>
+<p id="zipped" style="display: none">
+    <a href="Zipped/FotoC509.zip" style="color: blue">Click Here to Download the zipped package</a> (125 KB)
+</p>
+<p>
+    <img src="FotoGrid.jpg" alt="Exif Viewer" />
+</p>
+<p>
+    <img src="ExifViewer.jpg" alt="Exif Viewer" />
+</p>
+<p>
+&copy QLike.com
+</p>
+</body>
+</html>

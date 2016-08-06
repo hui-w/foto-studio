@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FotoGrid CellSpacing="5">
+  <Rows>
+    <Row Height="35%"></Row>
+    <Row Height="35%"></Row>
+    <Row Height="30%"></Row>
+  </Rows>
+  <Columns>
+    <Column Width="33%"></Column>
+    <Column Width="17%"></Column>
+    <Column Width="17%"></Column>
+    <Column Width="33%"></Column>
+  </Columns>
+  <Cells>
+    <Cell Row="0" Column="0" RowSpan="1" ColumnSpan="2"></Cell>
+    <Cell Row="0" Column="2" RowSpan="1" ColumnSpan="2"></Cell>
+    <Cell Row="1" Column="0" RowSpan="1" ColumnSpan="2"></Cell>
+    <Cell Row="1" Column="2" RowSpan="1" ColumnSpan="2"></Cell>
+    <Cell Row="2" Column="0" RowSpan="1" ColumnSpan="1"></Cell>
+    <Cell Row="2" Column="1" RowSpan="1" ColumnSpan="2"></Cell>
+    <Cell Row="2" Column="3" RowSpan="1" ColumnSpan="1"></Cell>
+  </Cells>
+</FotoGrid>

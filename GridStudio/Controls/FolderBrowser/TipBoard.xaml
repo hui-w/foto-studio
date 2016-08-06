@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="QLike.Foto.GridStudio.Controls.TipBoard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="5,0,5,5" Loaded="Grid_Loaded">
+        <Border BorderThickness="1" CornerRadius ="5"
+               Background="#CEEDFA" BorderBrush="#3399FF"></Border>
+        <Label Name="lblContent" HorizontalAlignment="Center"></Label>
+    </Grid>
+</UserControl>
