@@ -1,5 +1,5 @@
 # foto-studio
-A set of desktop applications for photos
+A set of desktop applications for photos management
 
 Created with C#, Windows Form, WPF
 
